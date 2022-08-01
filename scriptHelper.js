@@ -34,7 +34,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     validateInput("");
- event.preventDefault();
+ 
     let fuelStatus = document.getElementById('fuelStatus');
     let launchStatus = document.getElementById('launchStatus');
     let pilotStatus = document.getElementById('pilotStatus');
@@ -43,29 +43,31 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
     alert("All fields required!");
    formSubmission("Hello");
-  //  event.preventDefault();
   };
 
   if (isNaN(pilotName.value) || isNaN(copilotName.value)){
       pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready`
       copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready`;
-      // event.preventDefault();
   }
 
 else {
   alert("Pilot & Co-pilot need to be names, not numbers!");
-  // event.preventDefault();
 }
   
   if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)){
       alert("Fuel level & cargo mass need to be numbers!");
-      // event.preventDefault();
+  }
+  
+  if (fuelLevel.value<10000){
+  faultyItems.style.visibility = 'visible'
+  launchStatus.innerHTML = 'Shuttle not ready for launch';
+  launchStatus.style.color = 'red';
+  alert("There is not enough fuel for the journey!")
   }
 
 else{faultyItems.style.visibility = 'visible';
 fuelStatus.innerHTML = 'Fuel level high enough for journey';
 }
-// AM I MISSING SOMETHING HERE?
 
 if(cargoMass.value>10000){
   faultyItems.style.visibility = 'visible';
@@ -87,21 +89,24 @@ if(fuelLevel.value>10000 && cargoMass.value<=10000){
   cargoStatus.innerHTML = 'Cargo mass low enough for launch';
 }
 
-   console.log("Goodbye");
-}
-
 async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        response.json().then( function(json){
+        console.log(json);
         });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
-
-    // need to write this function out
+    ["Tatooine", "Pern", "Saturn/Titan", "Mars", "K2-18b", "Jupiter/Europa"];
+    for (i=0; i<5; i++){
+        let randPlanet = Math.random()
+        console.log(randPlanet)
+    }
+    // need to write this function out Chosen index is 0
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
