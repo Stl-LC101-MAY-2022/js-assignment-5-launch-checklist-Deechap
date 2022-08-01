@@ -2,7 +2,7 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    response.json().then( function(json) {
+    response.json().then(function(json) {
                   console.log(json); 
                 //   FROM THE TEXT DONT KNOW IF RIGHT
 
@@ -18,7 +18,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
-}}
+})}
 
 function validateInput(testInput) {
     if (testInput==="") {
