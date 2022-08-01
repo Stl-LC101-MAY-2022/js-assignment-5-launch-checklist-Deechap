@@ -2,8 +2,9 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    // response.json().then( function(json) {
-    //               console.log(json); FROM THE TEXT DONT KNOW IF RIGHT
+    response.json().then( function(json) {
+                  console.log(json); 
+                //   FROM THE TEXT DONT KNOW IF RIGHT
 
    // Here is the HTML formatting for our mission target div.
    /*
@@ -99,6 +100,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
+
     // need to write this function out
 }
 
