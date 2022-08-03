@@ -25,20 +25,21 @@ function validateInput(testInput) {
         return "Empty";
     }
     if (isNaN (testInput)===true){
-        return "Not a number";
+        return "Not a Number";
     }
     if (isNaN (testInput)===false){
-        return "Is a number";
+        return "Is a Number";
     }
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     validateInput("");
  
-    let fuelStatus = document.getElementById('fuelStatus');
+    let fuelLevel = document.getElementById('fuelStatus');
     let launchStatus = document.getElementById('launchStatus');
-    let pilotStatus = document.getElementById('pilotStatus');
-    let copilotStatus = document.getElementById('copilotStatus');
+    let pilotName = document.getElementById('pilotStatus');
+    let copilotName = document.getElementById('copilotStatus');
+    let cargoMass = document.getElementByID('cargoMass');
 
     if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
     alert("All fields required!");
@@ -88,15 +89,16 @@ if(fuelLevel.value>10000 && cargoMass.value<=10000){
   fuelStatus.innerHTML = 'Fuel level high enough for journey';
   cargoStatus.innerHTML = 'Cargo mass low enough for launch';
 }
+}
 
 async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         response.json().then( function(json){
-        console.log(json){
+        console.log(json)
         });
-
+      })
     return planetsReturned;
 }
 

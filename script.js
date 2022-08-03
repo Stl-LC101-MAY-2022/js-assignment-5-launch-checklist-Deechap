@@ -19,9 +19,7 @@ selectedPlanet.then(function (result){
     console.log(selectedPlanet);
 })
 // call function addDestinationInfo and pass in appropriate parameters (this will be end of fetch stuff)
-addDestinationInfo(){
-
-}
+addDestinationInfo()
 })
  let faultyItems = document.getElementById('faultyItems');
 //  set visibility
@@ -34,14 +32,15 @@ addDestinationInfo(){
     let cargoMass = document.querySelector("input[name=cargoMass]");
     
 formSubmission();
-   
-    let listedPlanets;
-    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    let listedPlanetsResponse;
-    listedPlanetsResponse.then(function (result) {
-        listedPlanets = result;
-        console.log(listedPlanets);
-    }).then(function () {
-        console.log(listedPlanets);
-    }
+    });
 
+    // let listedPlanets;
+    // // Set listedPlanetsResponse equal to the value returned by calling myFetch()
+    // let listedPlanetsResponse;
+    // listedPlanetsResponse.then(function (result) {
+    //     listedPlanets = result;
+    //     console.log(listedPlanets);
+    // }).then(function () {
+    //     console.log(listedPlanets);
+    // })
+})
