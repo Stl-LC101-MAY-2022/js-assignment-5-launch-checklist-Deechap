@@ -88,16 +88,16 @@ if(fuelLevel.value>10000 && cargoMass.value<=10000){
 }
 }
 
-async function myFetch() {
+function myFetch() {
     let planetsReturned;
-
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        response.json().then( function(json){
-        response.json()
+    planetsReturned = fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json()
+        // .then( function(json){
+        // response.json()
         });
     return planetsReturned;    
-      })
-}
+      }
+
 
 function pickPlanet(planets) {
         let randPlanet = Math.random()
