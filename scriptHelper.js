@@ -2,23 +2,20 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    response.json().then(function(json) {
-                  console.log(json); 
-                //   FROM THE TEXT DONT KNOW IF RIGHT
+  let div = documewnt.getElementById("missionTarget");
+  div.innerHTML=`
 
-   // Here is the HTML formatting for our mission target div.
-   /*
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name}</li>
+                    <li>Diameter: ${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance}</li>
+                    <li>Number of Moons:${moons} </li>
                 </ol>
-                <img src="">
-   */
-})}
+                <img src="${imageUrl}">
+   `
+}
 
 function validateInput(testInput) {
     if (testInput==="") {
@@ -35,10 +32,10 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     validateInput("");
  
-    let fuelLevel = document.getElementById('fuelStatus');
+    let fuelStatus = document.getElementById('fuelStatus');
     let launchStatus = document.getElementById('launchStatus');
-    let pilotName = document.getElementById('pilotStatus');
-    let copilotName = document.getElementById('copilotStatus');
+    let pilotStatus = document.getElementById('pilotStatus');
+    let copilotStatus = document.getElementById('copilotStatus');
     let cargoMass = document.getElementByID('cargoMass');
 
     if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
@@ -96,20 +93,20 @@ async function myFetch() {
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         response.json().then( function(json){
-        console.log(json)
+        response.json()
         });
+    return planetsReturned;    
       })
-    return planetsReturned;
 }
 
 function pickPlanet(planets) {
-    ["Tatooine", "Pern", "Saturn/Titan", "Mars", "K2-18b", "Jupiter/Europa"];
-    for (i=0; i<5; i++){
         let randPlanet = Math.random()
+        let index = Math.floor(Math.random()*
+        planets.length);
+        return planets[index];
         console.log(randPlanet)
     }
-    // need to write this function out Chosen index is 0
-}
+
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;

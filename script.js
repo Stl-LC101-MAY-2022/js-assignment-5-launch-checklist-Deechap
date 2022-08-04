@@ -10,16 +10,11 @@ window.addEventListener("load", function() {
     }).then(function () {
         console.log(listedPlanets);
     //    Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.    // 
-pickPlanet();
+
 let selectedPlanet=pickPlanet(listedPlanets)
-selectedPlanet.then(function (result){
-    selectedPlanet = result;
-    console.log(selectedPlanet);
-}).then(function () {
-    console.log(selectedPlanet);
-})
+
 // call function addDestinationInfo and pass in appropriate parameters (this will be end of fetch stuff)
-addDestinationInfo()
+addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.imageURL);
 })
  let faultyItems = document.getElementById('faultyItems');
 //  set visibility
@@ -31,16 +26,6 @@ addDestinationInfo()
     let fuelLevel = document.querySelector("input[name=fuelLevel]");
     let cargoMass = document.querySelector("input[name=cargoMass]");
     
-formSubmission();
-    });
-
-    // let listedPlanets;
-    // // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    // let listedPlanetsResponse;
-    // listedPlanetsResponse.then(function (result) {
-    //     listedPlanets = result;
-    //     console.log(listedPlanets);
-    // }).then(function () {
-    //     console.log(listedPlanets);
-    // })
+formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
+});
 })
