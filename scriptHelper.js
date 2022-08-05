@@ -1,5 +1,5 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+// require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
   let div = documewnt.getElementById("missionTarget");
@@ -92,12 +92,9 @@ function myFetch() {
     let planetsReturned;
     planetsReturned = fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         return response.json()
-        // .then( function(json){
-        // response.json()
         });
     return planetsReturned;    
       }
-
 
 function pickPlanet(planets) {
         let randPlanet = Math.random()
@@ -106,7 +103,6 @@ function pickPlanet(planets) {
         return planets[index];
         console.log(randPlanet)
     }
-
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
