@@ -29,16 +29,16 @@ function validateInput(testInput) {
     }
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoStatus) {
     validateInput("");
  
     let fuelStatus = document.getElementById('fuelStatus');
     let launchStatus = document.getElementById('launchStatus');
     let pilotStatus = document.getElementById('pilotStatus');
     let copilotStatus = document.getElementById('copilotStatus');
-    let cargoMass = document.getElementById('cargoMass');
+    let cargoLevel = document.getElementById('cargoLevel');
 console.log ();
-    if (pilot === "" || copilot === "" || fuelLevel === "" || cargoMass === ""){
+    if (pilot === "" || copilot === "" || fuelLevel === "" || cargoLevel === ""){
     alert("All fields required!");
   };
 
@@ -51,40 +51,36 @@ else {
   alert("Pilot & Co-pilot need to be names, not numbers!");
 }
   
-  if (isNaN(fuelLevel) || isNaN(cargoMass)){
+  if (isNaN(fuelLevel) || isNaN(cargoLevel)){
       alert("Fuel level & cargo mass need to be numbers!");
   }
   
-  if (fuelLevel<10000){
-  faultyItems.style.visibility = 'visible'
+//   
+if (fuelLevel < 10000) {
+  list.style.visibility ='visible';
+  fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
-  launchStatus.style.color = 'red';
-  }
+  launchStatus.style.color ='red';
 
-else{faultyItems.style.visibility = 'visible';
-fuelStatus.innerHTML = 'Fuel level high enough for journey';
-}
-
-if(cargoMass>10000){
-  faultyItems.style.visibility = 'visible';
-  cargoStatus.innerHTML = 'Cargo mass too heavy for shuttle to take off';
+ } else if(cargoMass > 10000) {
+  list.style.visibility = 'visible';
+  cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
-  launchStatus.style.color = 'red';
-}
-
-else {
-  faultyItems.style.visibility = 'visible';
-  cargoStatus.innerHTML = 'Cargo mass low enough for take off';
-}
-
-if(fuelLevel>10000 && cargoMass<=10000){
-  faultyItems.style.visibility = 'visible';
-  launchStatus.innerHTML = 'Shuttle is ready for launch';
+  launchStatus.style.color ='red';
+  
+ } else if (fuelLevel > 10000 && cargoMass < 10000) {
+  list.style.visibility = 'visible'
+  launchStatus.innerHTML = 'Shuttle is ready for launch.';
   launchStatus.style.color = 'green';
-  fuelStatus.innerHTML = 'Fuel level high enough for journey';
-  cargoStatus.innerHTML = 'Cargo mass low enough for launch';
+  
+ } else if (fuelLevel == 10000 && cargoMass == 10000) {
+  list.style.visibility = 'visible';
+  fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
+  launchStatus.innerHTML = 'Shuttle not ready for launch';
+  launchStatus.style.color = 'red';
+ }
 }
-}
+
 
 function myFetch() {
     let planetsReturned;
