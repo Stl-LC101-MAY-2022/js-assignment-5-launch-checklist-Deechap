@@ -62,18 +62,18 @@ if (fuelLevel < 10000) {
   launchStatus.innerHTML = 'Shuttle not ready for launch';
   launchStatus.style.color ='red';
 
- } else if(cargoMass > 10000) {
+ } else if(cargoLevel > 10000) {
   list.style.visibility = 'visible';
   cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
   launchStatus.style.color ='red';
   
- } else if (fuelLevel > 10000 && cargoMass < 10000) {
+ } else if (fuelLevel > 10000 && cargoLevel < 10000) {
   list.style.visibility = 'visible'
   launchStatus.innerHTML = 'Shuttle is ready for launch.';
   launchStatus.style.color = 'green';
-  
- } else if (fuelLevel == 10000 && cargoMass == 10000) {
+
+ } else if (fuelLevel == 10000 && cargoLevel == 10000) {
   list.style.visibility = 'visible';
   fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
