@@ -56,13 +56,11 @@ else {
   }
   
 //   
-if (fuelLevel < 10000) {
+if (fuelLevel < 10000 && cargoLevel > 10000) {
   list.style.visibility ='visible';
   fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
   launchStatus.style.color ='red';
-
- } else if(cargoLevel > 10000) {
   list.style.visibility = 'visible';
   cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off.';
   launchStatus.innerHTML = 'Shuttle not ready for launch';
@@ -79,8 +77,11 @@ if (fuelLevel < 10000) {
   launchStatus.innerHTML = 'Shuttle not ready for launch';
   launchStatus.style.color = 'red';
  }
-}
 
+//  if fuel level good but cargo level too high
+
+// if fuel level is too low and cargo low enough for launch
+}
 
 function myFetch() {
     let planetsReturned;
